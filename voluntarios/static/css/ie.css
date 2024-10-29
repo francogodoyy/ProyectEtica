@@ -1,0 +1,21 @@
+/* Estilos para navegadores más antiguos */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f0;
+    color: #333;
+}
+
+header {
+    background-color: #ff99cc;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 95%; /* Ajustar para navegadores antiguos */
+}

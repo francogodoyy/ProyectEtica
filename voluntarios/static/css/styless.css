@@ -1,0 +1,131 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar-dark {
+    background-color: #e91e63; /* Color rosado */
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffccd5;
+}
+
+.navbar-brand .logo {
+    height: 60px; /* Logo más grande */
+}
+
+/* Sección de Inicio */
+.header-section {
+    background-image: url('../img/fondo.png'); /* Cambia a la imagen deseada */
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0;
+    position: relative;
+}
+
+.header-section .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.header-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.header-section h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.header-section p {
+    font-size: 1.5rem;
+}
+
+/* Sección de Bienvenida */
+.welcome-section h2 {
+    color: #e91e63;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+}
+
+/* Sección de Voluntariados */
+.voluntariados-section h2 {
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.card-text {
+    color: #666;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #e91e63;
+    border-color: #e91e63;
+}
+
+.btn-primary:hover {
+    background-color: #d81b60;
+    border-color: #d81b60;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+}
+
+.footer h3 {
+    font-size: 2rem;
+    color: #e91e63;
+}
+
+.footer .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.footer .btn-primary {
+    background-color: #e91e63;
+    border-color: #e91e63;
+}
+
+.footer .btn-primary:hover {
+    background-color: #d81b60;
+}

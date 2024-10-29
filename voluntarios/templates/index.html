@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Voluntariado</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styless.css' %}">
+</head>
+<body>
+
+    <!-- Navbar con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Oportunidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Inicio con imagen y texto -->
+    <header class="header-section text-center text-white">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="display-3">Plataforma de Voluntariado</h1>
+            <p class="lead">Un lugar para conectar oportunidades y transformar comunidades</p>
+        </div>
+    </header>
+
+    <!-- Sección de Bienvenida -->
+    <section class="welcome-section py-5 text-center">
+        <div class="container">
+            <h2 class="display-5">Bienvenidos a la Página de Voluntariados</h2>
+            <p class="lead">Aquí puedes encontrar oportunidades de voluntariado que impactan positivamente en tu comunidad.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Voluntariados -->
+    <section class="voluntariados-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Voluntariados</h2>
+            <div class="row">
+                {% for oportunidad in oportunidades %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="{% static 'img/voluntariado.jpg' %}" class="card-img-top" alt="Imagen de Voluntariado">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ oportunidad.nombre }}</h5>
+                                <p class="card-text">{{ oportunidad.descripcion|slice:":100" }}...</p>
+                                <a href="#" class="btn btn-primary">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <footer class="footer py-5 bg-dark text-white text-center">
+        <div class="container">
+            <h3>Contacto</h3>
+            <form method="POST" class="mt-4">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Tu correo electrónico" required>
+                </div>
+                <div class="mb-3">
+                    <textarea name="mensaje" class="form-control" rows="5" placeholder="Tu mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

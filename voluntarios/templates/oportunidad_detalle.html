@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ oportunidad.nombre }}</title>
+    <link rel="stylesheet" href="{% static 'css/styless.css' %}">
+</head>
+<body>
+
+    <!-- Header con el logo -->
+    <header class="header">
+        <h1>Plataforma de Voluntariado</h1>
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+    </header>
+
+    <!-- Sección de detalles del voluntariado -->
+    <section class="detalle-voluntariado">
+        <h2>{{ oportunidad.nombre }}</h2>
+        <p><strong>Ubicación:</strong> {{ oportunidad.ubicacion }}</p>
+        <p><strong>Fecha:</strong> {{ oportunidad.fecha }}</p>
+        <p><strong>Descripción:</strong> {{ oportunidad.descripcion }}</p>
+        <p><strong>Requisitos:</strong> {{ oportunidad.requisitos }}</p>
+        <p><strong>Contacto:</strong> {{ oportunidad.contacto }}</p>
+        <a href="{% url 'inicio' %}" class="back-btn">Volver</a>
+    </section>
+
+</body>
+</html>
