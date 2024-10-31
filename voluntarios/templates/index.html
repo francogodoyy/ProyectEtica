@@ -23,63 +23,109 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a> <!-- Ancla a la sección de inicio -->
+                        <a class="nav-link" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#oportunidades">Oportunidades</a> <!-- Ancla a la sección de oportunidades -->
+                        <a class="nav-link" href="#oportunidades">Oportunidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a> <!-- Ancla a la sección de contacto -->
+                        <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Sección de Inicio con imagen y texto -->
-    <header id="inicio" class="header-section text-center text-white">
-        <div class="overlay"></div>
-        <div class="container">
-            <h1 class="display-3">Plataforma de Voluntariado</h1>
-            <p class="lead">Un lugar para conectar oportunidades y transformar comunidades</p>
+    <!-- Sección de Inicio con Carrusel -->
+    <div id="inicio" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-    </header>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/slide1.png' %}" class="d-block w-100" alt="Primera imagen">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-3">Plataforma de Voluntariado</h1>
+                    <p class="lead">Conectando oportunidades con comunidades</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/slide2.png' %}" class="d-block w-100" alt="Segunda imagen">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-3">Participa Hoy</h1>
+                    <p class="lead">Haz una diferencia siendo voluntario</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/slide3.png' %}" class="d-block w-100" alt="Tercera imagen">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-3">Contribuye a tu Comunidad</h1>
+                    <p class="lead">Encuentra oportunidades de voluntariado cerca de ti</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
 
-    <!--  
-    <section class="welcome-section py-5 text-center">
+    <!-- Sección de historia o descripción -->
+    <section id="about" class="about-section py-5">
         <div class="container">
-            <h2 class="display-5">Bienvenidos a la Página de Voluntariados</h2>
-            <p class="lead">Aquí puedes encontrar oportunidades de voluntariado que impactan positivamente en tu comunidad.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h3 class="text-warning">Sobre la Plataforma</h3>
+                    <h2>¿Quiénes somos?</h2>
+                    <p>
+                        Somos una plataforma dedicada a conectar voluntarios con oportunidades para ayudar en diversas causas. 
+                        Nos especializamos en brindar a las comunidades locales acceso a programas de apoyo educativo, social y ambiental.
+                    </p>
+                    <p>
+                        <strong>Profesor a cargo:</strong> Juan Pérez, con más de 15 años de experiencia en coordinación de proyectos comunitarios.
+                    </p>
+                    <p>
+                        <strong>Responsable del proyecto:</strong> María Gómez, desarrolladora del proyecto, con un enfoque en mejorar la accesibilidad 
+                        y eficiencia de las actividades de voluntariado.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'img/tu_imagen.png' %}" alt="Descripción de la imagen" class="img-fluid">
+                </div>
+            </div>
         </div>
     </section>
--->
-<!-- Sección de Voluntariados -->
-<section id="oportunidades" class="voluntariados-section py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Voluntariados</h2>
-        <div class="row">
-            {% for oportunidad in oportunidades %}
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <!-- Mostrar imagen de la oportunidad si existe, si no, mostrar imagen por defecto -->
-                        {% if oportunidad.imagen %}
-                            <img src="{{ oportunidad.imagen.url }}" class="card-img-top" alt="Imagen de {{ oportunidad.nombre }}">
-                        {% else %}
-                            <img src="{% static 'img/voluntariado.jpg' %}" class="card-img-top" alt="Imagen de Voluntariado">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ oportunidad.nombre }}</h5>
-                            <p class="card-text">{{ oportunidad.descripcion|slice:":100" }}...</p>
-                            <!-- Redirigir a la página de detalle de oportunidad -->
-                            <a href="{% url 'oportunidad_detalle' oportunidad.id %}" class="btn btn-primary">Leer más</a>
+
+    <!-- Sección de Voluntariados -->
+    <section id="oportunidades" class="voluntariados-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Voluntariados</h2>
+            <div class="row">
+                {% for oportunidad in oportunidades %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            {% if oportunidad.imagen %}
+                                <img src="{{ oportunidad.imagen.url }}" class="card-img-top" alt="Imagen de {{ oportunidad.nombre }}">
+                            {% else %}
+                                <img src="{% static 'img/voluntariado.jpg' %}" class="card-img-top" alt="Imagen de Voluntariado">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ oportunidad.nombre }}</h5>
+                                <p class="card-text">{{ oportunidad.descripcion|slice:":100" }}...</p>
+                                <a href="{% url 'oportunidad_detalle' oportunidad.id %}" class="btn btn-primary">Leer más</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Formulario de Contacto -->
     <footer id="contacto" class="footer py-5 bg-dark text-white text-center">
