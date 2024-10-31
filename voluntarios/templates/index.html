@@ -23,13 +23,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="#inicio">Inicio</a> <!-- Ancla a la sección de inicio -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Oportunidades</a>
+                        <a class="nav-link" href="#oportunidades">Oportunidades</a> <!-- Ancla a la sección de oportunidades -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#contacto">Contacto</a> <!-- Ancla a la sección de contacto -->
                     </li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
     </nav>
 
     <!-- Sección de Inicio con imagen y texto -->
-    <header class="header-section text-center text-white">
+    <header id="inicio" class="header-section text-center text-white">
         <div class="overlay"></div>
         <div class="container">
             <h1 class="display-3">Plataforma de Voluntariado</h1>
@@ -45,37 +45,44 @@
         </div>
     </header>
 
-    <!-- Sección de Bienvenida -->
+    <!--  
     <section class="welcome-section py-5 text-center">
         <div class="container">
             <h2 class="display-5">Bienvenidos a la Página de Voluntariados</h2>
             <p class="lead">Aquí puedes encontrar oportunidades de voluntariado que impactan positivamente en tu comunidad.</p>
         </div>
     </section>
-
-    <!-- Sección de Voluntariados -->
-    <section class="voluntariados-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Voluntariados</h2>
-            <div class="row">
-                {% for oportunidad in oportunidades %}
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
+-->
+<!-- Sección de Voluntariados -->
+<section id="oportunidades" class="voluntariados-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Voluntariados</h2>
+        <div class="row">
+            {% for oportunidad in oportunidades %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <!-- Mostrar imagen de la oportunidad si existe, si no, mostrar imagen por defecto -->
+                        {% if oportunidad.imagen %}
+                            <img src="{{ oportunidad.imagen.url }}" class="card-img-top" alt="Imagen de {{ oportunidad.nombre }}">
+                        {% else %}
                             <img src="{% static 'img/voluntariado.jpg' %}" class="card-img-top" alt="Imagen de Voluntariado">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ oportunidad.nombre }}</h5>
-                                <p class="card-text">{{ oportunidad.descripcion|slice:":100" }}...</p>
-                                <a href="#" class="btn btn-primary">Leer más</a>
-                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ oportunidad.nombre }}</h5>
+                            <p class="card-text">{{ oportunidad.descripcion|slice:":100" }}...</p>
+                            <!-- Redirigir a la página de detalle de oportunidad -->
+                            <a href="{% url 'oportunidad_detalle' oportunidad.id %}" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Formulario de Contacto -->
-    <footer class="footer py-5 bg-dark text-white text-center">
+    <footer id="contacto" class="footer py-5 bg-dark text-white text-center">
         <div class="container">
             <h3>Contacto</h3>
             <form method="POST" class="mt-4">

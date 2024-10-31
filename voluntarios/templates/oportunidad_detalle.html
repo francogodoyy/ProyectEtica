@@ -4,27 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ oportunidad.nombre }}</title>
+    <title>{{ oportunidad.nombre }} - Detalles</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styless.css' %}">
 </head>
 <body>
 
-    <!-- Header con el logo -->
-    <header class="header">
-        <h1>Plataforma de Voluntariado</h1>
-        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
-    </header>
+    <!-- Navbar con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#oportunidades">Oportunidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Sección de detalles del voluntariado -->
-    <section class="detalle-voluntariado">
-        <h2>{{ oportunidad.nombre }}</h2>
-        <p><strong>Ubicación:</strong> {{ oportunidad.ubicacion }}</p>
-        <p><strong>Fecha:</strong> {{ oportunidad.fecha }}</p>
-        <p><strong>Descripción:</strong> {{ oportunidad.descripcion }}</p>
-        <p><strong>Requisitos:</strong> {{ oportunidad.requisitos }}</p>
-        <p><strong>Contacto:</strong> {{ oportunidad.contacto }}</p>
-        <a href="{% url 'inicio' %}" class="back-btn">Volver</a>
+    <!-- Detalles de la Oportunidad -->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <h1 class="display-4">{{ oportunidad.nombre }}</h1>
+            <p class="lead">{{ oportunidad.descripcion }}</p>
+            <p><strong>Ubicación:</strong> {{ oportunidad.ubicacion }}</p>
+            <p><strong>Fecha:</strong> {{ oportunidad.fecha }}</p>
+            <a href="/" class="btn btn-primary">Volver a Oportunidades</a>
+        </div>
     </section>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

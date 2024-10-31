@@ -7,6 +7,7 @@ class Oportunidad(models.Model):
     fecha = models.DateField()
     requisitos = models.TextField(null=True)  # Asegúrate de tener este campo
     contacto = models.CharField(max_length=100, null=True)  # Cambia a nullable
+    imagen = models.ImageField(upload_to='voluntariados/', null=True, blank=True)
 
     def __str__(self):
         return self.nombre
