@@ -74,12 +74,12 @@ body {
 .carousel-caption h1 {
     font-size: 4rem;
     font-weight: bold;
-    color: #fff;
+    color: #333;
 }
 
 .carousel-caption p {
     font-size: 1.5rem;
-    color: #fff;
+    color: #333;
 }
 
 .carousel-control-prev-icon,
