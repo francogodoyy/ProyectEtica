@@ -74,12 +74,12 @@ body {
 .carousel-caption h1 {
     font-size: 4rem;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
 }
 
 .carousel-caption p {
     font-size: 1.5rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .carousel-control-prev-icon,
@@ -181,6 +181,50 @@ body {
     height: auto;
     border-radius: 8px; /* Bordes redondeados para la imagen */
 }
+
+/* Estilos para la sección ¿Por qué hacer voluntariado? */
+.why-volunteer-section {
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+}
+
+.why-volunteer-section h2 {
+    font-size: 2.5rem;
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.why-volunteer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.why-volunteer-content p {
+    margin-bottom: 20px;
+}
+
+.why-volunteer-content strong {
+    color: #e91e63;
+}
+
+@media (max-width: 768px) {
+    .why-volunteer-section h2 {
+        font-size: 2rem;
+    }
+
+    .why-volunteer-content {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {
